@@ -11,11 +11,11 @@ const getCertifications = async (req, res) => {
 
 const createCertification = async (req, res) => {
   try {
-    const { title, issuer, date, order } = req.body;
+    const { title, issuer, date, fileUrl, fileType, order } = req.body;
     if (!title || !issuer || !date) {
       return res.status(400).json({ message: 'Title, issuer, and date are required' });
     }
-    const certification = new Certification({ title, issuer, date, order });
+    const certification = new Certification({ title, issuer, date, fileUrl, fileType, order });
     const created = await certification.save();
     res.status(201).json(created);
   } catch (error) {
@@ -25,12 +25,14 @@ const createCertification = async (req, res) => {
 
 const updateCertification = async (req, res) => {
   try {
-    const { title, issuer, date, order } = req.body;
+    const { title, issuer, date, fileUrl, fileType, order } = req.body;
     const certification = await Certification.findById(req.params.id);
     if (certification) {
       certification.title = title || certification.title;
       certification.issuer = issuer || certification.issuer;
       certification.date = date || certification.date;
+      if (fileUrl !== undefined) certification.fileUrl = fileUrl;
+      if (fileType !== undefined) certification.fileType = fileType;
       certification.order = order !== undefined ? order : certification.order;
       const updated = await certification.save();
       res.json(updated);

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Award, Trophy } from 'lucide-react';
+import { Award, Trophy, ExternalLink, Image as ImageIcon, FileText } from 'lucide-react';
 
 const CertificationsSection = ({ certifications = [], achievements = [] }) => {
   return (
@@ -30,12 +30,51 @@ const CertificationsSection = ({ certifications = [], achievements = [] }) => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="bg-bg-base p-6 rounded-xl border border-border-subtle hover:border-brand-primary/30 transition-all duration-300 hover:shadow-md"
+                  className="bg-bg-base p-6 rounded-xl border border-border-subtle hover:border-brand-primary/30 transition-all duration-300 hover:shadow-md flex flex-col sm:flex-row sm:items-start gap-4"
                 >
-                  <h3 className="text-xl font-bold text-text-primary mb-2 transition-colors duration-300">{cert.title}</h3>
-                  <div className="flex justify-between items-center text-sm">
-                    <span className="text-brand-secondary font-mono transition-colors duration-300">{cert.issuer}</span>
-                    <span className="text-text-muted transition-colors duration-300">{cert.date}</span>
+                  {cert.fileType === 'image' && cert.fileUrl && (
+                    <a 
+                      href={cert.fileUrl} 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="block shrink-0 w-24 h-20 sm:w-32 sm:h-24 rounded overflow-hidden border border-border-subtle relative group"
+                    >
+                      <img src={cert.fileUrl} alt={cert.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <ExternalLink className="text-white w-5 h-5" />
+                      </div>
+                    </a>
+                  )}
+
+                  <div className="flex-1 w-full">
+                    <h3 className="text-xl font-bold text-text-primary mb-2 transition-colors duration-300">{cert.title}</h3>
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center text-sm gap-2 mb-3">
+                      <span className="text-brand-secondary font-mono transition-colors duration-300">{cert.issuer}</span>
+                      <span className="text-text-muted transition-colors duration-300">{cert.date}</span>
+                    </div>
+
+                    {cert.fileType === 'pdf' && cert.fileUrl && (
+                      <a 
+                        href={cert.fileUrl} 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className="inline-flex items-center gap-2 text-sm text-brand-primary hover:text-brand-secondary font-medium transition-colors"
+                      >
+                        <FileText className="w-4 h-4" />
+                        View Certificate (PDF)
+                      </a>
+                    )}
+                    {(!cert.fileType || cert.fileType === '') && cert.fileUrl && (
+                      <a 
+                        href={cert.fileUrl} 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className="inline-flex items-center gap-2 text-sm text-brand-primary hover:text-brand-secondary font-medium transition-colors"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        View Credential
+                      </a>
+                    )}
                   </div>
                 </motion.div>
               ))}
