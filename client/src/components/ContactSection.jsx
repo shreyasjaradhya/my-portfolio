@@ -37,7 +37,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-bg-dark relative">
+    <section id="contact" className="py-24 bg-bg-base relative transition-colors duration-300">
       <div className="absolute inset-0 circuit-pattern opacity-10 pointer-events-none"></div>
       
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -47,11 +47,11 @@ const ContactSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-mono">
-            <span className="text-accent-400">06.</span> What's Next?
+          <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4 font-mono transition-colors duration-300">
+            <span className="text-brand-secondary">06.</span> What's Next?
           </h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">Get In Touch</h3>
-          <p className="text-gray-400 text-lg leading-relaxed max-w-xl mx-auto">
+          <h3 className="text-4xl md:text-5xl font-bold text-text-primary mb-6 transition-colors duration-300">Get In Touch</h3>
+          <p className="text-text-secondary text-lg leading-relaxed max-w-xl mx-auto transition-colors duration-300">
             Whether you have a question, a project idea, or just want to say hi, I'll try my best to get back to you!
           </p>
         </motion.div>
@@ -62,10 +62,10 @@ const ContactSection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
         >
-          <form onSubmit={handleSubmit} className="bg-bg-card p-8 rounded-2xl border border-gray-800 shadow-xl">
+          <form onSubmit={handleSubmit} className="bg-bg-card p-8 rounded-2xl border border-border-subtle shadow-xl transition-colors duration-300">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2 font-mono">Name</label>
+                <label htmlFor="name" className="block text-sm font-medium text-text-muted mb-2 font-mono transition-colors duration-300">Name</label>
                 <input
                   type="text"
                   id="name"
@@ -73,12 +73,12 @@ const ContactSection = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full bg-bg-dark border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors"
+                  className="w-full bg-bg-base border border-border-subtle rounded-md px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-colors"
                   placeholder="John Doe"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2 font-mono">Email</label>
+                <label htmlFor="email" className="block text-sm font-medium text-text-muted mb-2 font-mono transition-colors duration-300">Email</label>
                 <input
                   type="email"
                   id="email"
@@ -86,14 +86,14 @@ const ContactSection = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full bg-bg-dark border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors"
+                  className="w-full bg-bg-base border border-border-subtle rounded-md px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-colors"
                   placeholder="john@example.com"
                 />
               </div>
             </div>
             
             <div className="mb-6">
-              <label htmlFor="subject" className="block text-sm font-medium text-gray-400 mb-2 font-mono">Subject</label>
+              <label htmlFor="subject" className="block text-sm font-medium text-text-muted mb-2 font-mono transition-colors duration-300">Subject</label>
               <input
                 type="text"
                 id="subject"
@@ -101,13 +101,13 @@ const ContactSection = () => {
                 value={formData.subject}
                 onChange={handleChange}
                 required
-                className="w-full bg-bg-dark border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors"
+                className="w-full bg-bg-base border border-border-subtle rounded-md px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-colors"
                 placeholder="Project Inquiry"
               />
             </div>
             
             <div className="mb-8">
-              <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2 font-mono">Message</label>
+              <label htmlFor="message" className="block text-sm font-medium text-text-muted mb-2 font-mono transition-colors duration-300">Message</label>
               <textarea
                 id="message"
                 name="message"
@@ -115,7 +115,7 @@ const ContactSection = () => {
                 onChange={handleChange}
                 required
                 rows="5"
-                className="w-full bg-bg-dark border border-gray-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors resize-none"
+                className="w-full bg-bg-base border border-border-subtle rounded-md px-4 py-3 text-text-primary focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-colors resize-none"
                 placeholder="Hello, I'd like to talk about..."
               ></textarea>
             </div>
@@ -126,7 +126,7 @@ const ContactSection = () => {
               className={`w-full py-4 rounded-md font-medium flex items-center justify-center gap-2 transition-all ${
                 isSuccess 
                   ? 'bg-green-600 hover:bg-green-500 text-white' 
-                  : 'bg-brand-600 hover:bg-brand-500 text-white disabled:opacity-70 disabled:cursor-not-allowed'
+                  : 'bg-btn-bg hover:bg-btn-hover text-btn-text disabled:opacity-70 disabled:cursor-not-allowed shadow-md'
               }`}
             >
               {isSubmitting ? (

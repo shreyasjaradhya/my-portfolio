@@ -44,15 +44,15 @@ const ExperienceForm = ({ initialData, onSubmit, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/80 p-4">
-      <div className="bg-slate-800 rounded-xl w-full max-w-2xl border border-slate-700 shadow-2xl max-h-[90vh] overflow-y-auto">
-        <div className="flex justify-between items-center p-6 border-b border-slate-700 sticky top-0 bg-slate-800 z-10">
-          <h2 className="text-xl font-bold text-white">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-bg-base/80 p-4">
+      <div className="bg-bg-card rounded-xl w-full max-w-2xl border border-border-subtle shadow-2xl max-h-[90vh] overflow-y-auto">
+        <div className="flex justify-between items-center p-6 border-b border-border-subtle sticky top-0 bg-bg-card z-10">
+          <h2 className="text-xl font-bold text-text-primary">
             {initialData ? 'Edit Experience' : 'Add New Experience'}
           </h2>
           <button
             onClick={onClose}
-            className="text-slate-400 hover:text-white transition-colors"
+            className="text-text-secondary hover:text-text-primary transition-colors duration-300"
           >
             <X className="h-6 w-6" />
           </button>
@@ -61,50 +61,50 @@ const ExperienceForm = ({ initialData, onSubmit, onClose }) => {
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1">Company/Organization *</label>
+              <label className="block text-sm font-medium text-text-primary mb-1">Company/Organization *</label>
               <input
                 type="text"
                 name="company"
                 value={formData.company}
                 onChange={handleChange}
                 required
-                className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
+                className="w-full px-3 py-2 bg-border-subtle border border-border-subtle rounded-lg text-text-primary focus:outline-none focus:border-blue-500"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1">Role/Title *</label>
+              <label className="block text-sm font-medium text-text-primary mb-1">Role/Title *</label>
               <input
                 type="text"
                 name="role"
                 value={formData.role}
                 onChange={handleChange}
                 required
-                className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
+                className="w-full px-3 py-2 bg-border-subtle border border-border-subtle rounded-lg text-text-primary focus:outline-none focus:border-blue-500"
               />
             </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1">Start Date *</label>
+              <label className="block text-sm font-medium text-text-primary mb-1">Start Date *</label>
               <input
                 type="date"
                 name="startDate"
                 value={formData.startDate}
                 onChange={handleChange}
                 required
-                className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
+                className="w-full px-3 py-2 bg-border-subtle border border-border-subtle rounded-lg text-text-primary focus:outline-none focus:border-blue-500"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1">End Date</label>
+              <label className="block text-sm font-medium text-text-primary mb-1">End Date</label>
               <input
                 type="date"
                 name="endDate"
                 value={formData.endDate}
                 onChange={handleChange}
                 disabled={formData.isCurrent}
-                className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full px-3 py-2 bg-border-subtle border border-border-subtle rounded-lg text-text-primary focus:outline-none focus:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
               />
               <div className="mt-2 flex items-center">
                 <input
@@ -113,9 +113,9 @@ const ExperienceForm = ({ initialData, onSubmit, onClose }) => {
                   name="isCurrent"
                   checked={formData.isCurrent}
                   onChange={handleChange}
-                  className="w-4 h-4 text-blue-600 bg-slate-700 border-slate-600 rounded focus:ring-blue-500"
+                  className="w-4 h-4 text-blue-600 bg-border-subtle border-border-subtle rounded focus:ring-brand-primary"
                 />
-                <label htmlFor="isCurrent" className="ml-2 text-sm text-slate-300">
+                <label htmlFor="isCurrent" className="ml-2 text-sm text-text-primary">
                   I currently work here
                 </label>
               </div>
@@ -123,39 +123,39 @@ const ExperienceForm = ({ initialData, onSubmit, onClose }) => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1">Description</label>
+            <label className="block text-sm font-medium text-text-primary mb-1">Description</label>
             <textarea
               name="description"
               value={formData.description}
               onChange={handleChange}
               rows="4"
-              className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 bg-border-subtle border border-border-subtle rounded-lg text-text-primary focus:outline-none focus:border-blue-500"
               placeholder="Describe your responsibilities and achievements..."
             ></textarea>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1">Display Order</label>
+            <label className="block text-sm font-medium text-text-primary mb-1">Display Order</label>
             <input
               type="number"
               name="order"
               value={formData.order}
               onChange={handleChange}
-              className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 bg-border-subtle border border-border-subtle rounded-lg text-text-primary focus:outline-none focus:border-blue-500"
             />
           </div>
 
-          <div className="flex justify-end space-x-3 pt-4 border-t border-slate-700">
+          <div className="flex justify-end space-x-3 pt-4 border-t border-border-subtle">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors"
+              className="px-4 py-2 bg-border-subtle hover:bg-border-subtle text-text-primary rounded-lg transition-colors duration-300"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+              className="px-4 py-2 bg-btn-bg text-btn-text rounded-lg transition-colors duration-300"
             >
               {initialData ? 'Update Experience' : 'Add Experience'}
             </button>

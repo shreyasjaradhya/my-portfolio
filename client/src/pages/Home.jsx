@@ -86,14 +86,14 @@ const Home = () => {
 
   if (data.loading) {
     return (
-      <div className="min-h-screen bg-bg-dark flex items-center justify-center">
-        <div className="w-16 h-16 border-4 border-gray-800 border-t-brand-500 rounded-full animate-spin"></div>
+      <div className="min-h-screen bg-bg-base flex items-center justify-center transition-colors duration-300">
+        <div className="w-16 h-16 border-4 border-border-subtle border-t-brand-primary rounded-full animate-spin"></div>
       </div>
     );
   }
 
   return (
-    <div className="bg-bg-dark min-h-screen text-gray-100">
+    <div className="bg-bg-base min-h-screen text-text-primary transition-colors duration-300">
       <Navbar profile={data.profile} />
       <main>
         <HeroSection profile={data.profile} />

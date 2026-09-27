@@ -73,35 +73,35 @@ const ProjectForm = ({ initialData, onSubmit, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/80 p-4">
-      <div className="bg-slate-800 rounded-xl w-full max-w-2xl border border-slate-700 shadow-2xl max-h-[90vh] overflow-y-auto">
-        <div className="flex justify-between items-center p-6 border-b border-slate-700 sticky top-0 bg-slate-800 z-10">
-          <h2 className="text-xl font-bold text-white">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-bg-base/80 p-4">
+      <div className="bg-bg-card rounded-xl w-full max-w-2xl border border-border-subtle shadow-2xl max-h-[90vh] overflow-y-auto">
+        <div className="flex justify-between items-center p-6 border-b border-border-subtle sticky top-0 bg-bg-card z-10">
+          <h2 className="text-xl font-bold text-text-primary">
             {initialData ? 'Edit Project' : 'Add New Project'}
           </h2>
-          <button onClick={onClose} className="text-slate-400 hover:text-white transition-colors">
+          <button onClick={onClose} className="text-text-secondary hover:text-text-primary transition-colors duration-300">
             <X className="h-6 w-6" />
           </button>
         </div>
         
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1">Project Title *</label>
-            <input type="text" name="title" value={formData.title} onChange={handleChange} required className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500" />
+            <label className="block text-sm font-medium text-text-primary mb-1">Project Title *</label>
+            <input type="text" name="title" value={formData.title} onChange={handleChange} required className="w-full px-3 py-2 bg-border-subtle border border-border-subtle rounded-lg text-text-primary focus:outline-none focus:border-blue-500" />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1">Description *</label>
-            <textarea name="description" value={formData.description} onChange={handleChange} required rows="4" className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500"></textarea>
+            <label className="block text-sm font-medium text-text-primary mb-1">Description *</label>
+            <textarea name="description" value={formData.description} onChange={handleChange} required rows="4" className="w-full px-3 py-2 bg-border-subtle border border-border-subtle rounded-lg text-text-primary focus:outline-none focus:border-blue-500"></textarea>
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1">Image URL</label>
+            <label className="block text-sm font-medium text-text-primary mb-1">Image URL</label>
             <div className="flex space-x-2">
-              <input type="text" name="imageUrl" value={formData.imageUrl} onChange={handleChange} className="flex-1 px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500" placeholder="https://example.com/image.jpg" />
+              <input type="text" name="imageUrl" value={formData.imageUrl} onChange={handleChange} className="flex-1 px-3 py-2 bg-border-subtle border border-border-subtle rounded-lg text-text-primary focus:outline-none focus:border-blue-500" placeholder="https://example.com/image.jpg" />
               <div className="relative">
                 <input type="file" id="projectImage" onChange={handleFileUpload} className="hidden" accept="image/*" />
-                <label htmlFor="projectImage" className="flex items-center justify-center space-x-2 px-4 py-2 bg-slate-600 hover:bg-slate-500 text-white rounded-lg cursor-pointer transition-colors h-full whitespace-nowrap">
+                <label htmlFor="projectImage" className="flex items-center justify-center space-x-2 px-4 py-2 bg-border-subtle hover:bg-slate-500 text-text-primary rounded-lg cursor-pointer transition-colors duration-300 h-full whitespace-nowrap">
                   <Upload className="h-4 w-4" />
                   <span>{isUploading ? 'Uploading...' : 'Upload'}</span>
                 </label>
@@ -110,40 +110,40 @@ const ProjectForm = ({ initialData, onSubmit, onClose }) => {
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1">Technologies (comma separated) *</label>
-            <input type="text" name="techStack" value={formData.techStack} onChange={handleChange} required className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500" placeholder="React, Node.js, MongoDB" />
+            <label className="block text-sm font-medium text-text-primary mb-1">Technologies (comma separated) *</label>
+            <input type="text" name="techStack" value={formData.techStack} onChange={handleChange} required className="w-full px-3 py-2 bg-border-subtle border border-border-subtle rounded-lg text-text-primary focus:outline-none focus:border-blue-500" placeholder="React, Node.js, MongoDB" />
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1">GitHub URL</label>
-              <input type="url" name="githubUrl" value={formData.githubUrl} onChange={handleChange} className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500" />
+              <label className="block text-sm font-medium text-text-primary mb-1">GitHub URL</label>
+              <input type="url" name="githubUrl" value={formData.githubUrl} onChange={handleChange} className="w-full px-3 py-2 bg-border-subtle border border-border-subtle rounded-lg text-text-primary focus:outline-none focus:border-blue-500" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1">Live URL</label>
-              <input type="url" name="liveUrl" value={formData.liveUrl} onChange={handleChange} className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500" />
+              <label className="block text-sm font-medium text-text-primary mb-1">Live URL</label>
+              <input type="url" name="liveUrl" value={formData.liveUrl} onChange={handleChange} className="w-full px-3 py-2 bg-border-subtle border border-border-subtle rounded-lg text-text-primary focus:outline-none focus:border-blue-500" />
             </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1">Date</label>
-              <input type="text" name="date" value={formData.date} onChange={handleChange} className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500" placeholder="e.g. Dec 2025" />
+              <label className="block text-sm font-medium text-text-primary mb-1">Date</label>
+              <input type="text" name="date" value={formData.date} onChange={handleChange} className="w-full px-3 py-2 bg-border-subtle border border-border-subtle rounded-lg text-text-primary focus:outline-none focus:border-blue-500" placeholder="e.g. Dec 2025" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-1">Display Order</label>
-              <input type="number" name="order" value={formData.order} onChange={handleChange} className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-blue-500" />
+              <label className="block text-sm font-medium text-text-primary mb-1">Display Order</label>
+              <input type="number" name="order" value={formData.order} onChange={handleChange} className="w-full px-3 py-2 bg-border-subtle border border-border-subtle rounded-lg text-text-primary focus:outline-none focus:border-blue-500" />
             </div>
           </div>
           
           <div className="flex items-center space-x-2 pt-2">
-            <input type="checkbox" id="featured" name="featured" checked={formData.featured} onChange={handleChange} className="w-4 h-4 rounded bg-slate-700 border-slate-600 text-blue-600 focus:ring-blue-500" />
-            <label htmlFor="featured" className="text-sm font-medium text-slate-300">Feature this project on home page</label>
+            <input type="checkbox" id="featured" name="featured" checked={formData.featured} onChange={handleChange} className="w-4 h-4 rounded bg-border-subtle border-border-subtle text-blue-600 focus:ring-brand-primary" />
+            <label htmlFor="featured" className="text-sm font-medium text-text-primary">Feature this project on home page</label>
           </div>
           
-          <div className="flex justify-end space-x-3 pt-4 border-t border-slate-700">
-            <button type="button" onClick={onClose} className="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors">Cancel</button>
-            <button type="submit" disabled={isUploading} className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors disabled:opacity-50">
+          <div className="flex justify-end space-x-3 pt-4 border-t border-border-subtle">
+            <button type="button" onClick={onClose} className="px-4 py-2 bg-border-subtle hover:bg-border-subtle text-text-primary rounded-lg transition-colors duration-300">Cancel</button>
+            <button type="submit" disabled={isUploading} className="px-4 py-2 bg-btn-bg text-btn-text rounded-lg transition-colors duration-300 disabled:opacity-50">
               {initialData ? 'Update Project' : 'Add Project'}
             </button>
           </div>

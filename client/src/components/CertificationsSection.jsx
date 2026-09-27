@@ -3,7 +3,7 @@ import { Award, Trophy } from 'lucide-react';
 
 const CertificationsSection = ({ certifications = [], achievements = [] }) => {
   return (
-    <section id="certifications" className="py-24 bg-bg-dark border-t border-gray-800">
+    <section id="certifications" className="py-24 bg-bg-card border-t border-border-subtle transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           
@@ -15,11 +15,11 @@ const CertificationsSection = ({ certifications = [], achievements = [] }) => {
               viewport={{ once: true }}
               className="mb-10"
             >
-              <h2 className="text-3xl font-bold text-white mb-4 font-mono flex items-center gap-2">
-                <Award className="text-brand-400 w-8 h-8" />
+              <h2 className="text-3xl font-bold text-text-primary mb-4 font-mono flex items-center gap-2 transition-colors duration-300">
+                <Award className="text-brand-primary w-8 h-8 transition-colors duration-300" />
                 Certifications
               </h2>
-              <div className="w-16 h-1 bg-brand-500 rounded"></div>
+              <div className="w-16 h-1 bg-brand-secondary rounded transition-colors duration-300"></div>
             </motion.div>
 
             <div className="space-y-6">
@@ -30,12 +30,12 @@ const CertificationsSection = ({ certifications = [], achievements = [] }) => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="bg-bg-card p-6 rounded-xl border border-gray-800 hover:border-brand-500/30 transition-colors"
+                  className="bg-bg-base p-6 rounded-xl border border-border-subtle hover:border-brand-primary/30 transition-all duration-300 hover:shadow-md"
                 >
-                  <h3 className="text-xl font-bold text-white mb-2">{cert.title}</h3>
+                  <h3 className="text-xl font-bold text-text-primary mb-2 transition-colors duration-300">{cert.title}</h3>
                   <div className="flex justify-between items-center text-sm">
-                    <span className="text-accent-400 font-mono">{cert.issuer}</span>
-                    <span className="text-gray-500">{cert.date}</span>
+                    <span className="text-brand-secondary font-mono transition-colors duration-300">{cert.issuer}</span>
+                    <span className="text-text-muted transition-colors duration-300">{cert.date}</span>
                   </div>
                 </motion.div>
               ))}
@@ -50,11 +50,11 @@ const CertificationsSection = ({ certifications = [], achievements = [] }) => {
               viewport={{ once: true }}
               className="mb-10"
             >
-              <h2 className="text-3xl font-bold text-white mb-4 font-mono flex items-center gap-2">
-                <Trophy className="text-brand-400 w-8 h-8" />
+              <h2 className="text-3xl font-bold text-text-primary mb-4 font-mono flex items-center gap-2 transition-colors duration-300">
+                <Trophy className="text-brand-primary w-8 h-8 transition-colors duration-300" />
                 Achievements
               </h2>
-              <div className="w-16 h-1 bg-brand-500 rounded"></div>
+              <div className="w-16 h-1 bg-brand-secondary rounded transition-colors duration-300"></div>
             </motion.div>
 
             <div className="space-y-6">
@@ -65,10 +65,10 @@ const CertificationsSection = ({ certifications = [], achievements = [] }) => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="bg-bg-card p-6 rounded-xl border border-gray-800 hover:border-brand-500/30 transition-colors"
+                  className="bg-bg-base p-6 rounded-xl border border-border-subtle hover:border-brand-primary/30 transition-all duration-300 hover:shadow-md"
                 >
-                  <h3 className="text-xl font-bold text-white mb-2">{ach.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{ach.description}</p>
+                  <h3 className="text-xl font-bold text-text-primary mb-2 transition-colors duration-300">{ach.title}</h3>
+                  <p className="text-text-secondary text-sm leading-relaxed transition-colors duration-300">{ach.description}</p>
                 </motion.div>
               ))}
             </div>

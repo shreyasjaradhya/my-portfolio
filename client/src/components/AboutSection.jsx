@@ -3,7 +3,7 @@ import { Terminal } from 'lucide-react';
 
 const AboutSection = ({ profile }) => {
   return (
-    <section id="about" className="py-24 bg-bg-dark relative">
+    <section id="about" className="py-24 bg-bg-base relative transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row gap-12 items-center">
           
@@ -14,12 +14,12 @@ const AboutSection = ({ profile }) => {
             transition={{ duration: 0.5 }}
             className="w-full md:w-1/2"
           >
-            <div className="relative aspect-square max-w-md mx-auto">
+            <div className="relative aspect-square max-w-md mx-auto group">
               {/* Futuristic Avatar placeholder */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-brand-600 to-accent-500 opacity-20 blur-xl"></div>
-              <div className="relative h-full w-full rounded-2xl border border-gray-800 bg-bg-card flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 circuit-pattern opacity-30"></div>
-                <Terminal className="w-32 h-32 text-gray-600" />
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-brand-primary to-brand-secondary opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-500"></div>
+              <div className="relative h-full w-full rounded-2xl border border-border-subtle bg-bg-card flex items-center justify-center overflow-hidden transition-colors duration-300">
+                <div className="absolute inset-0 circuit-pattern"></div>
+                <Terminal className="w-32 h-32 text-text-muted group-hover:text-brand-secondary transition-colors duration-500" />
                 {/* Replace above with actual image when available */}
                 {/* <img src="profile.jpg" alt="Shrey" className="object-cover w-full h-full" /> */}
               </div>
@@ -33,10 +33,10 @@ const AboutSection = ({ profile }) => {
             transition={{ duration: 0.5 }}
             className="w-full md:w-1/2"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-mono flex items-center gap-2">
-              <span className="text-accent-400">01.</span> About Me
+            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6 font-mono flex items-center gap-2 transition-colors duration-300">
+              <span className="text-brand-secondary">01.</span> About Me
             </h2>
-            <div className="text-gray-400 space-y-4 text-lg leading-relaxed">
+            <div className="text-text-secondary space-y-4 text-lg leading-relaxed transition-colors duration-300">
               <p>
                 {profile?.bio || "I'm a passionate engineer who loves bridging the gap between hardware and software. With a strong foundation in Electronics and Communication Engineering, I build systems that are not just functionally robust, but also intelligent."}
               </p>
@@ -46,13 +46,13 @@ const AboutSection = ({ profile }) => {
             </div>
             
             <div className="mt-8 grid grid-cols-2 gap-4">
-              <div className="bg-bg-card p-4 rounded-lg border border-gray-800">
-                <h4 className="text-white font-bold mb-1">Education</h4>
-                <p className="text-sm text-gray-400">B.Tech ECE</p>
+              <div className="bg-bg-card p-4 rounded-lg border border-border-subtle hover:shadow-md transition-all duration-300 hover:border-brand-secondary/50">
+                <h4 className="text-text-primary font-bold mb-1">Education</h4>
+                <p className="text-sm text-text-secondary">B.Tech ECE</p>
               </div>
-              <div className="bg-bg-card p-4 rounded-lg border border-gray-800">
-                <h4 className="text-white font-bold mb-1">Focus</h4>
-                <p className="text-sm text-gray-400">Hardware + Software</p>
+              <div className="bg-bg-card p-4 rounded-lg border border-border-subtle hover:shadow-md transition-all duration-300 hover:border-brand-secondary/50">
+                <h4 className="text-text-primary font-bold mb-1">Focus</h4>
+                <p className="text-sm text-text-secondary">Hardware + Software</p>
               </div>
             </div>
           </motion.div>

@@ -1,47 +1,105 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* LIGHT MODE (Default) */
+  --color-bg-base: #f8fafc;
+  --color-bg-card: #ffffff;
+  --color-bg-card-hover: #f1f5f9;
+  
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94a3b8;
+  
+  --color-border-subtle: #e2e8f0;
+  
+  --color-brand-primary: #1e3a8a; /* Deep Navy */
+  --color-brand-secondary: #2563eb; /* Electric Blue */
+  --color-brand-accent: #d97706; /* Subtle Gold/Amber */
+  
+  --color-btn-bg: #1e3a8a;
+  --color-btn-hover: #1e40af;
+  --color-btn-text: #ffffff;
+}
+
+.dark {
+  /* DARK MODE */
+  --color-bg-base: #0a0f1c; /* Deep navy/near-black */
+  --color-bg-card: #111827; /* Slightly lighter navy */
+  --color-bg-card-hover: #1e293b;
+  
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+  
+  --color-border-subtle: #1e293b; /* Dark-blue borders */
+  
+  --color-brand-primary: #3b82f6; /* Electric Blue */
+  --color-brand-secondary: #06b6d4; /* Cyan */
+  --color-brand-accent: #f59e0b; /* Amber */
+  
+  --color-btn-bg: #2563eb;
+  --color-btn-hover: #3b82f6;
+  --color-btn-text: #ffffff;
+}
+
 @theme {
-  --color-brand-50: #eef2ff;
-  --color-brand-100: #e0e7ff;
-  --color-brand-400: #818cf8;
-  --color-brand-500: #6366f1;
-  --color-brand-600: #4f46e5;
-  --color-brand-900: #312e81;
-  --color-accent-400: #2dd4bf; /* Teal/Cyan for tech feel */
-  --color-accent-500: #14b8a6;
+  --color-bg-base: var(--color-bg-base);
+  --color-bg-card: var(--color-bg-card);
+  --color-bg-card-hover: var(--color-bg-card-hover);
   
-  --color-bg-dark: #0a0f1c; /* Very dark blue-gray */
-  --color-bg-card: #111827;
-  --color-bg-card-hover: #1f2937;
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
   
+  --color-border-subtle: var(--color-border-subtle);
+  
+  --color-brand-primary: var(--color-brand-primary);
+  --color-brand-secondary: var(--color-brand-secondary);
+  --color-brand-accent: var(--color-brand-accent);
+  
+  --color-btn-bg: var(--color-btn-bg);
+  --color-btn-hover: var(--color-btn-hover);
+  --color-btn-text: var(--color-btn-text);
+
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono: 'Fira Code', 'JetBrains Mono', monospace;
+  --font-heading: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Space Grotesk', 'Fira Code', 'JetBrains Mono', monospace;
 }
 
 body {
-  background-color: var(--color-bg-dark);
-  color: #f3f4f6;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
   font-family: var(--font-sans);
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Custom Scrollbar for modern look */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-dark);
+  background: var(--color-bg-base);
 }
 ::-webkit-scrollbar-thumb {
-  background: #374151;
+  background: var(--color-border-subtle);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-brand-500);
+  background: var(--color-brand-secondary);
 }
 
 .circuit-pattern {
-  background-image: radial-gradient(var(--color-brand-900) 1px, transparent 1px);
-  background-size: 20px 20px;
-  opacity: 0.2;
+  background-image: radial-gradient(var(--color-brand-primary) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.05;
+}
+.dark .circuit-pattern {
+  opacity: 0.15;
 }
